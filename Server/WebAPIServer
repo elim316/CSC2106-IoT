@@ -1,0 +1,85 @@
+#include <WiFi.h>
+#include <WebServer.h>
+#include <M5StickCPlus.h>
+#include <ArduinoJson.h>
+
+// Function Prototypes
+void handleRouteNotFound();
+void handleGetData();
+
+/* Put your SSID & Password */
+const char* ssid = "";
+const char* password =  "";
+
+// Pin connection
+
+WebServer server(80);
+
+void setup() {
+  Serial.begin(115200);
+
+  // Put your setup code here, to run once:
+  M5.begin();
+
+  int x = M5.IMU.Init(); //return 0 is ok, return -1 is unknown
+  if(x!=0) {
+    Serial.println("IMU initialisation fail!");
+  }
+
+  M5.Lcd.printf("Initialising Group30-M5StickAPI", 0);
+
+  // Attempting WiFi Connection
+  WiFi.begin(ssid, password);
+
+  // Setting the hostname
+  WiFi.setHostname("Group30-M5StickAPI");
+
+  Serial.print("Starting WiFi connection");
+  while (WiFi.status() != WL_CONNECTED) {
+    // Every 500 milliseconds attempt to connect to WiFi
+    delay(500);
+    Serial.println("Attempting to connect to WiFi!");
+  }
+  M5.Lcd.setCursor(0, 20, 2);
+  M5.Lcd.print("IP: ");
+  M5.Lcd.println(WiFi.localIP());
+
+  // Event handler for WebAPI
+  // server.on("/get-data", handleLightSensor);
+  server.on("/get-data", handleGetData);
+  server.onNotFound(handleRouteNotFound);
+
+  server.begin();
+  Serial.println("HTTP Server started");
+  Serial.print("Connected to the WiFi network. IP Address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void handleGetData() {
+  JsonDocument doc;
+  String jsonOutput;
+
+  // Let's hardcode 2 building first. Here is supposed to read LORA connection
+  doc["buildings"][0]["name"] = "Building 1";
+  doc["buildings"][0]["sensor"]["light"] = 1;
+
+  doc["buildings"][1]["name"] = "Building 2";
+  doc["buildings"][1]["sensor"]["light"] = 0;
+
+  serializeJson(doc, jsonOutput);
+  server.send(200, "application/json", jsonOutput);
+}
+
+void handleRouteNotFound() {
+  JsonDocument doc;
+  doc["message"] = "Route not found";
+
+  String jsonOutput;
+  serializeJson(doc, jsonOutput);
+
+  server.send(404, "application/json", jsonOutput);
+}
+
+void loop() {
+  server.handleClient();
+}
