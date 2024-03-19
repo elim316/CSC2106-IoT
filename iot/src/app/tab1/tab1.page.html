@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Smart Building Controls
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <div class="custom-select-container">
+            <ion-item>
+              <ion-select aria-label="Building" placeholder="All devices" [multiple]="true">
+                <ion-select-option value="all">All devices</ion-select-option>
+                <ion-select-option value="buildingAfloor1">Building A Floor 1</ion-select-option>
+                <ion-select-option value="buildingAfloor2">Building A Floor 2</ion-select-option>
+                <ion-select-option value="buildingBfloor1">Building B Floor 1</ion-select-option>
+                <ion-select-option value="buildingBfloor2">Building B Floor 2</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>          
+          <div class="container flex-container">
+            <div class="content-container">
+              <h1 class="heading">Lights</h1>
+              <ion-toggle></ion-toggle>
+            </div>
+            <img src="assets/ceiling-lamp.svg" class="icon" alt="Lights">
+          </div>
+          <div class="container flex-container">
+            <div class="content-container">
+              <h1 class="heading">Temperature</h1>
+              <ion-toggle></ion-toggle>
+            </div>
+            <img src="assets/thermometer.svg" class="icon" alt="Temperature">
+          </div>
+          <div class="container flex-container">
+            <div class="content-container">
+              <h1 class="heading">Motion sensor</h1>
+              <ion-toggle></ion-toggle>
+            </div>
+            <img src="assets/motion-sensor.svg" class="icon" alt="Motion Sensor">
+          </div>
+          <div class="container flex-container record-container">
+            <ion-button shape="circle" fill="clear" class="record-btn">
+              <ion-icon name="mic" slot="icon-only"></ion-icon>
+            </ion-button>
+            <h1 class="record-text">Hold to record</h1>
+          </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

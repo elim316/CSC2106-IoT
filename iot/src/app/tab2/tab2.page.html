@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Smart Building Dashboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <!-- Dropdown Container -->
+   <div class="custom-select-container">
+    <ion-select value="all" interface="popover" class="custom-select" placeholder="All devices">
+      <ion-select-option value="all">All devices</ion-select-option>
+      <ion-select-option value="lights">Lights</ion-select-option>
+      <ion-select-option value="temperature">Temperature</ion-select-option>
+      <ion-select-option value="motion">Motion Sensor</ion-select-option>
+      <ion-select-option value="building1">Building 1</ion-select-option>
+      <ion-select-option value="building2">Building 2</ion-select-option>
+      <ion-select-option value="floor1">Floor 1</ion-select-option>
+      <ion-select-option value="floor2">Floor 2</ion-select-option>
+    </ion-select>
+  </div>       
+  <div class="dashboard-container">
+    <div class="chart-container">
+      <!-- Insert your chart here. For example, you can use a canvas or any chart library -->
+      <img src="path/to/your/chart/image.png" alt="Total electricity"> <!-- Placeholder for chart -->
+    </div>
+    <div class="status-container">
+      <div class="status-item lights">
+        <p>Lights</p>
+        <p>70%</p>
+      </div>
+      <div class="status-item temperature">
+        <p>Temperature</p>
+        <p>50%</p>
+      </div>
+      <div class="status-item motion">
+        <p>Motion sensor</p>
+        <p>15%</p>
+      </div>
+    </div>
+    <div class="info-container">
+      <div class="info-item">
+        <p>Average Temperature</p>
+        <p>23°C</p>
+      </div>
+      <div class="info-item">
+        <p>Electricity usage</p>
+        <p>340KWh</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

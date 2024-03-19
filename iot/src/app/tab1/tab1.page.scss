@@ -1,0 +1,122 @@
+.container {
+    background-color: #ffffff; 
+    padding: 15px 30px;
+    margin: 20px 20px 35px 20px; 
+    border-radius: 20px; 
+    box-shadow: 0 2px 4px rgba(240, 152, 152, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+  .container:nth-child(2) {
+    background-color: #E8DCB9; /* Light container */ 
+  }
+  
+  .container:nth-child(3) {
+    background-color: #F2CEE6; /* Temperature container */ 
+  }
+  
+  .container:nth-child(4) {
+    background-color: #C3DBC5; /* Motion sensor  container */
+  }
+
+  .container:nth-child(5) {
+    background-color: #ACCBE1; /* Voice recorder container */
+  }
+  
+.heading {
+    font-size: 18px;
+    font-weight: 600;
+    color: #002B5A;
+} 
+
+.icon {
+  width: 40px; 
+  height: 40px; 
+}
+
+ion-toggle {
+    --handle-size: 61px; 
+    padding-top: 25px;
+  }
+
+.custom-select-container {
+    border-radius: 20px; 
+    margin: 20px; 
+    padding: 5px 15px;
+    --background: #FFFFFF; 
+    --border-style: solid;
+    --border-color: #002B5A; 
+    --border-style: solid; 
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); 
+    // align-items: center; 
+    // justify-content: center; 
+  }
+  
+
+.custom-select {
+  width: 100%; 
+  --padding-start: 20px;
+  --padding-end: 20px; 
+  --background: transparent; 
+  --placeholder-color: #000000;
+  --placeholder-font-size: 16px; 
+  --placeholder-font-weight: 500; 
+  --color: #000000; 
+  --icon-size: 24px; 
+  --icon-color: #002B5A; 
+  font-size: 16px; 
+  height: 50px; 
+  border-radius: 30px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+ion-select::part(placeholder),
+ion-select::part(text) {
+  text-align: center; 
+}
+
+ion-select::part(icon) {
+  position: absolute; 
+  right: 15px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  border-radius: 300px;
+}
+
+.record-container {
+  background-color: #ACCBE1;
+  padding: 15px 30px;
+  margin: 20px 20px 35px 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(240, 152, 152, 0.1);
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+}
+
+.record-btn[shape=circle] {
+  --background: #6CA0DC; 
+  --border-radius: 50%;
+  width: 64px; 
+  height: 64px; 
+  margin-bottom: 10px; 
+}
+
+.record-btn ion-icon {
+  font-size: 32px;
+  color: white; 
+  border-radius: 100px; 
+}
+
+.record-text {
+  color: #002B5A;
+  font-size: 16px;
+  font-weight: 600; 
+}
+
+  
