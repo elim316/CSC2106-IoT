@@ -8,8 +8,8 @@ void handleRouteNotFound();
 void handleGetData();
 
 /* Put your SSID & Password */
-const char* ssid = "";
-const char* password =  "";
+const char* ssid = "rene";
+const char* password =  "renepassword";
 
 // Pin connection
 
@@ -48,7 +48,7 @@ void setup() {
   // server.on("/get-data", handleLightSensor);
   server.on("/get-data", handleGetData);
   server.onNotFound(handleRouteNotFound);
-
+  
   server.begin();
   Serial.println("HTTP Server started");
   Serial.print("Connected to the WiFi network. IP Address: ");
@@ -56,6 +56,12 @@ void setup() {
 }
 
 void handleGetData() {
+  // Set CORS headers
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Access-Control-Max-Age", "10000");
+  server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET,OPTIONS");
+  server.sendHeader("Access-Control-Allow-Headers", "*");
+
   JsonDocument doc;
   String jsonOutput;
 
@@ -71,6 +77,12 @@ void handleGetData() {
 }
 
 void handleRouteNotFound() {
+  // Set CORS headers
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Access-Control-Max-Age", "10000");
+  server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET,OPTIONS");
+  server.sendHeader("Access-Control-Allow-Headers", "*");
+
   JsonDocument doc;
   doc["message"] = "Route not found";
 

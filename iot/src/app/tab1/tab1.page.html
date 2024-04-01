@@ -14,19 +14,22 @@
             <ion-item>
               <ion-select aria-label="Building" placeholder="All devices" [multiple]="true">
                 <ion-select-option value="all">All devices</ion-select-option>
-                <ion-select-option value="buildingAfloor1">Building A Floor 1</ion-select-option>
-                <ion-select-option value="buildingAfloor2">Building A Floor 2</ion-select-option>
-                <ion-select-option value="buildingBfloor1">Building B Floor 1</ion-select-option>
-                <ion-select-option value="buildingBfloor2">Building B Floor 2</ion-select-option>
+                <ion-select-option value="buildingAfloor1">Building 1</ion-select-option>
+                <ion-select-option value="buildingBfloor1">Building 2</ion-select-option>
+                <!-- <ion-select-option value="buildingAfloor2">Building 1 Floor 2</ion-select-option> -->
+                <!-- <ion-select-option value="buildingBfloor2">Building 2 Floor 2</ion-select-option> -->
               </ion-select>
             </ion-item>
+            <!-- <button (click)="fetchDataFromArduino()">Fetch Data</button> -->
           </div>          
-          <div class="container flex-container">
-            <div class="content-container">
-              <h1 class="heading">Lights</h1>
-              <ion-toggle></ion-toggle>
+          <div *ngFor="let building of buildingData">
+            <div class="container flex-container">
+              <div class="content-container">
+                <h1 class="heading">Lights</h1>
+                <ion-toggle [(ngModel)]="building.sensor.light" (ionChange)="toggleLight(building)"></ion-toggle>
+              </div>
+              <img src="assets/ceiling-lamp.svg" class="icon" alt="Lights">
             </div>
-            <img src="assets/ceiling-lamp.svg" class="icon" alt="Lights">
           </div>
           <div class="container flex-container">
             <div class="content-container">
