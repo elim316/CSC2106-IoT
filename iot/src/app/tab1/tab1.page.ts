@@ -8,8 +8,9 @@ import { ArduinoService } from '../services/arduino.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  selectedBuilding: string = 'all'; // Default selected building
+  selectedBuildings: string = 'all'; // Default selected building
   buildingData: any[] = []; // Array to store building data retrieved from server
+  displayedBuildingData: any[] = []; // Data to display, after filter
 
   constructor(private arduinoService: ArduinoService) { }
   ngOnInit() {
@@ -20,7 +21,18 @@ export class Tab1Page implements OnInit {
     this.arduinoService.getData().subscribe(data => {
       // Update buildingData array with the received data
       this.buildingData = data.buildings;
+      this.displayedBuildingData = [...this.buildingData]; // Initially display all
     });
+  }
+
+  filterBuildings() {
+    if (this.selectedBuildings.length) {
+      this.displayedBuildingData = this.buildingData.filter(building => 
+        this.selectedBuildings.includes(building.name)
+      );
+    } else {
+      this.displayedBuildingData = [...this.buildingData]; // No selection, show all
+    }
   }
 
   toggleLight(building: any) {

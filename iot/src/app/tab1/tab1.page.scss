@@ -9,19 +9,19 @@
     align-items: center;
 }
   
-  .container:nth-child(2) {
+  .light-container {
     background-color: #E8DCB9; /* Light container */ 
   }
   
-  .container:nth-child(3) {
+  .temperature-container {
     background-color: #F2CEE6; /* Temperature container */ 
   }
   
-  .container:nth-child(4) {
+  .motion-container {
     background-color: #C3DBC5; /* Motion sensor  container */
   }
 
-  .container:nth-child(5) {
+  .record-container{
     background-color: #ACCBE1; /* Voice recorder container */
   }
   

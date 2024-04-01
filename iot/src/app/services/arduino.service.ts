@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ArduinoService {
 
-  private baseUrl = 'http://172.20.10.8';
+  private baseUrl = 'http://192.168.56.83';
 
   constructor(private http: HttpClient) { }
 
