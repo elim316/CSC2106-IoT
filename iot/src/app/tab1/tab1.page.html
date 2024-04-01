@@ -12,7 +12,7 @@
       <ion-col>
           <div class="custom-select-container">
             <ion-item>
-              <ion-select aria-label="Building" placeholder="Select a building" [multiple]="true" [(ngModel)]="selectedBuildings" (ionChange)="filterBuildings()">
+              <ion-select aria-label="Building" placeholder="All Devices" [multiple]="true" [(ngModel)]="selectedBuildings" (ionChange)="filterBuildings()">
                 <!-- Dynamic building options will be populated here -->
                 <ion-select-option *ngFor="let building of buildingData" [value]="building.name">{{ building.name }}</ion-select-option>
                 <!-- <ion-select-option value="buildingAfloor2">Building 1 Floor 2</ion-select-option> -->
@@ -25,7 +25,7 @@
           <div *ngFor="let building of displayedBuildingData">
             <div class="container flex-container light-container">
               <div class="content-container">
-                <h1 class="heading">Lights</h1>
+                <h1 class="heading">{{ building.name }} Lights</h1>
                 <ion-toggle [(ngModel)]="building.sensor.light" (ionChange)="toggleLight(building)"></ion-toggle>
               </div>
               <img src="assets/ceiling-lamp.svg" class="icon" alt="Lights">
