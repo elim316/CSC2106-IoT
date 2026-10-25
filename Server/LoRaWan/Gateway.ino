@@ -124,7 +124,8 @@ void loop() {
     String data = Serial.readString();
     Message msg;
     msg.destID = 1; // Adjust destination ID as needed
-    strcpy((char *)msg.payload, data.c_str()); // Adjust payload as needed
+    strncpy((char *)msg.payload, data.c_str(), sizeof(msg.payload) - 1);
+    msg.payload[sizeof(msg.payload) - 1] = '\0';
     sendWithRetransmit(msg);
   }
 

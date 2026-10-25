@@ -22,8 +22,8 @@ void setupSyncTimeServer();
 
 
 // Global variable
-const char* ssid = "Xiaomi 13T";
-const char* password =  "Trickster123";
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 
 // NTP Server that is used for timesync
 char* ntpServer =  "sg.pool.ntp.org";
